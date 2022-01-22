@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ReactComponent as RightArrow } from "../assets/arrow-right.svg";
 const Banner = () => {
   return (
     <section className="main">
@@ -14,7 +14,9 @@ const Banner = () => {
             </div>
           </h2>
           <div className="btn-row">
-            <a href="/">More About us</a>
+            <a href="/">
+              More About us <RightArrow />
+            </a>
           </div>
         </div>
       </div>
