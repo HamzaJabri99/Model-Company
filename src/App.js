@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import Banner from "./Components/Banner";
-import Cases from "./Components/Cases";
 import Header from "./Components/Header";
-import Intro from "./Components/Intro";
 import "./styles/App.scss";
-
+import Home from "./Pages/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//Pages
+import CaseStudies from "./Pages/CaseStudies";
+import Approach from "./Pages/Approach";
+import Services from "./Pages/Services";
+import About from "./Pages/About";
 function App() {
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
@@ -14,47 +17,22 @@ function App() {
     //handling device and browser-specific
     //making flashes dissapear
     gsap.to("body", 0, { css: { visibility: "visible" } });
-    //timeLine Animation
-    const tl = gsap.timeline();
-    tl.from(".line span", 1.6, {
-      y: 100,
-      ease: "power4.out",
-      delay: 1,
-      skewY: 7,
-      stagger: {
-        amount: 0.3,
-      },
-    })
-      .to(".overlay-top", 1.6, {
-        height: 0,
-        ease: "expo.inOut",
-        stagger: 0.4,
-      })
-      .to(".overlay-bottom", 1.6, {
-        width: 0,
-        ease: "expo.inOut",
-        delay: -0.8,
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .to(".intro-overlay", 1, { css: { display: "none" } })
-      .from(".case-image img", 1.6, {
-        scale: 1.4,
-        ease: "expo.inOut",
-        delay: -2,
-        stagger: {
-          amount: 0.4,
-        },
-      });
   });
   return (
-    <div className="App ">
-      <Intro />
+    <>
       <Header />
-      <Banner />
-      <Cases />
-    </div>
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/approach" element={<Approach />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
