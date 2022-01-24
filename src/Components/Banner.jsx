@@ -14,7 +14,7 @@ const Banner = () => {
             </div>
           </h2>
           <div className="btn-row">
-            <a href="/">
+            <a href="/about">
               More About us <RightArrow />
             </a>
           </div>

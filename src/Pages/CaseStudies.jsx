@@ -1,7 +1,6 @@
 import React from "react";
-
+import gsap from "gsap";
 const CaseStudies = () => {
-  console.log('"hazhdbiazbd');
   return (
     <div className="page">
       <div className="container">
