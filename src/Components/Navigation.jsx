@@ -1,6 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Navigation = () => {
+import React, { useEffect } from "react";
+import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
+
+const Navigation = ({ menu, setMenu }) => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    // if (navigate !== navigate(-1)) {
+    //   setMenu(false);
+    // }
+  }, [menu]);
   return (
     <nav>
       <div className="container">
@@ -9,16 +16,18 @@ const Navigation = () => {
             <div className="nav-label">Menu</div>
             <ul className="nav-links">
               <li>
-                <Link to="/case-studies">Case Studies</Link>
+                <Link setMenu={setMenu} to="/case-studies">
+                  Case Studies
+                </Link>
               </li>
               <li>
                 <Link to="/approach">Approach</Link>
               </li>
               <li>
-                <Link to="/services">Services</Link>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/about">About us</Link>
+                <Link to="/services">Services</Link>
               </li>
             </ul>
           </div>

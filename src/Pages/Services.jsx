@@ -1,5 +1,8 @@
-import React from "react";
-const Services = () => {
+import React, { useEffect } from "react";
+const Services = ({ setMenu }) => {
+  useEffect(() => {
+    setMenu(false);
+  }, []);
   return (
     <div className="page">
       <div className="container">

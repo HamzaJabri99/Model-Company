@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const About = () => {
+const About = ({ setMenu }) => {
+  useEffect(() => {
+    setMenu(false);
+  }, []);
   return (
     <div className="page">
       <div className="container">

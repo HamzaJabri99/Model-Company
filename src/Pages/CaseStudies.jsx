@@ -1,6 +1,9 @@
-import React from "react";
-import gsap from "gsap";
-const CaseStudies = () => {
+import React, { useEffect } from "react";
+
+const CaseStudies = ({ setMenu }) => {
+  useEffect(() => {
+    setMenu(false);
+  }, []);
   return (
     <div className="page">
       <div className="container">
